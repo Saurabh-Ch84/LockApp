@@ -1,0 +1,92 @@
+/* src/pages/Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Make it take the full screen height */
+  padding: 2rem;
+
+  /* Set the image. The path points to your 'public' folder. */
+  background-image: url('/h2.jpg');
+
+  /* Scale the image to cover the entire screen without distortion. */
+  background-size: cover;
+
+  /* Center the image. */
+  background-position: center;
+
+  /* Prevent the image from tiling. */
+  background-repeat: no-repeat;
+
+}
+
+.login-box {
+  max-width: 400px;
+  width: 100%;
+  padding: 2.5rem;
+  background-color: rgba(40, 44, 52, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-align: center;
+  color: #efefef;
+}
+
+.login-box h1 {
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+}
+
+.login-box p {
+  margin-bottom: 25px;
+  color: #aaa;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffffff;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #282c34;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.login-button:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}

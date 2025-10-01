@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+database.db
+user.json
+blocklist.json
+
+# Node
+/frontend/node_modules/
+/frontend/dist/
+/frontend/dist-electron/
+npm-debug.log
+
+# IDE / OS files
+.vscode/
+.DS_Store

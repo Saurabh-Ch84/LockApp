@@ -1,0 +1,22 @@
+/* src/App.css */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #282c34; /* Set a base background color here */
+  color: white;
+}
+
+/* The app-container's only job is to wrap the pages.
+  Remove flex, padding, and margin.
+*/
+.app-container {
+  width: 100%;
+}

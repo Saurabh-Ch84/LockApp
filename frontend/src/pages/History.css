@@ -1,0 +1,150 @@
+/* src/pages/History.css */
+
+/* --- Full-Screen Background Container (Unchanged from before) --- */
+.history-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-image: url('/h6.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* --- Main Page Content (The Card) --- */
+.page-content {
+  max-width: 800px;
+  width: 100%;
+  padding: 3rem 3.5rem; /* Increased padding */
+  min-height: 400px; /* NEW: Set a minimum height for the card to make it larger */
+  background-color: rgba(40, 44, 52, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Consistent spacing between title, list, and button */
+}
+
+/* --- Heading (Unchanged from before) --- */
+.page-content h2 {
+  font-size: 2.2rem;
+  color: #efefef;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+/* --- History List Styling (Unchanged from before) --- */
+.history-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+/* --- Individual List Items (UPDATED FOR SPACING) --- */
+.history-list li {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 18px 25px;
+  border-radius: 10px;
+  margin-bottom: 15px; /* Increased margin for more vertical gap */
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  border-left: 4px solid #ffffff;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* NEW: Styles for the website name span */
+.history-list li span {
+  flex-grow: 1; /* Allows the span to take up available space */
+  margin-right: 20px; /* NEW: Gap between website name and button */
+  word-break: break-all; /* Ensures long URLs wrap */
+}
+
+
+/* --- Remove Button Styles (Redesigned to match theme) --- */
+.remove-button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: whitesmoke; /* Darker, more subtle red for glass effect */
+  color: #363131; /* Lighter red text */
+  border: 1px solid rgba(73, 73, 73, 0.782); /* Faint red border */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Prevents button from shrinking */
+}
+
+.remove-button:hover {
+  background-color: rgb(129, 126, 126);
+  color: #ffffff;
+  border-color: rgba(42, 26, 26, 0.5);
+}
+
+/* --- Empty List Message (Unchanged from before) --- */
+.history-list p {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+  font-size: 1.1rem;
+  padding: 2rem; /* Added padding to align with larger card */
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 10px; /* Space from title */
+}
+
+/* --- Navigation Button (Unchanged from before) --- */
+.back-button {
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #ffffff;
+  color: #282c34;
+}
+
+
+/* 1. The main scrollbar element */
+.history-list::-webkit-scrollbar {
+  width: 8px; /* Sets the width of the scrollbar */
+}
+
+/* 2. The track (the background the scrollbar moves on) */
+.history-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); /* A dark, subtle track color */
+  border-radius: 10px;
+}
+
+/* 3. The thumb (the draggable part of the scrollbar) */
+.history-list::-webkit-scrollbar-thumb {
+  background-color: #888; /* A neutral gray for the handle */
+  border-radius: 10px;
+  border: 2px solid transparent; /* Creates padding around the thumb */
+  background-clip: content-box; /* Ensures the border acts as padding */
+}
+
+/* 4. The thumb on hover */
+.history-list::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb; /* A lighter gray on hover */
+}
