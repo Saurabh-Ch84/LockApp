@@ -1,5 +1,7 @@
 # Lock - Website Blocker
 
+[![Watch the Demo Video](https://img.youtube.com/vi/_V04zUlaYHU/maxresdefault.jpg)](https://www.youtube.com/watch?v=_V04zUlaYHU)
+
 ## Installation Guide
 
 ### Prerequisites
