@@ -1,9 +1,8 @@
-
 ```markdown
 # 🔒 Lock - Desktop Website Blocker
 
 # Demo Video
-https://www.youtube.com/watch?v=_V04zUlaYHU
+[![Watch the Demo](https://img.youtube.com/vi/_V04zUlaYHU/0.jpg)](https://www.youtube.com/watch?v=_V04zUlaYHU)
 
 > A high-performance desktop application that enforces productivity by blocking distracting websites at the system level (DNS Sinkhole).
 
@@ -74,5 +73,7 @@ The installer will be located in `frontend/dist-electron/`.
 ---
 
 *Note: This application modifies system files (`hosts`). Please use responsibly.*
+
+```
 
 ```
