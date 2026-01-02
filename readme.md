@@ -1,8 +1,13 @@
-```markdown
+<div align="center">
+  <h3>🎥 Watch the Demo</h3>
+  <a href="https://www.youtube.com/watch?v=_V04zUlaYHU" target="_blank">
+    <img src="https://img.youtube.com/vi/_V04zUlaYHU/hqdefault.jpg" alt="Lock App Demo" width="600" style="border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.5);">
+  </a>
+  <p><i>Click the image above to see how Lock works instantly!</i></p>
+</div>
+
 # 🔒 Lock - Desktop Website Blocker
 
-# Demo Video
-[![Watch the Demo](https://img.youtube.com/vi/_V04zUlaYHU/0.jpg)](https://www.youtube.com/watch?v=_V04zUlaYHU)
 
 > A high-performance desktop application that enforces productivity by blocking distracting websites at the system level (DNS Sinkhole).
 
