@@ -1,150 +1,78 @@
-# Lock - Website Blocker
 
-[![Watch the Demo Video](https://img.youtube.com/vi/_V04zUlaYHU/maxresdefault.jpg)](https://www.youtube.com/watch?v=_V04zUlaYHU)
+```markdown
+# 🔒 Lock - Desktop Website Blocker
 
-## Installation Guide
+# Demo Video
+https://www.youtube.com/watch?v=_V04zUlaYHU
+
+> A high-performance desktop application that enforces productivity by blocking distracting websites at the system level (DNS Sinkhole).
+
+## 🚀 Overview
+
+**Lock** is a cross-platform desktop application designed to eliminate digital distractions. Unlike browser extensions which can be easily bypassed, Lock modifies the operating system's `hosts` file to redirect web traffic to `127.0.0.1` (localhost), effectively cutting off access to specific domains system-wide.
+
+This project was architected to demonstrate **native system integration** using modern web technologies.
+
+## 🛠 Tech Stack
+* **Core:** [Electron](https://www.electronjs.org/) (Node.js + Chromium)
+* **Frontend:** React 19, Vite
+* **State Management:** Redux Toolkit (RTK) with Thunks
+* **Routing:** React Router DOM
+* **System Integration:** Node.js `fs` (File System), Child Process (`exec`), IPC (Inter-Process Communication)
+
+## ✨ Key Features
+* **🛡 System-Wide Blocking:** Uses a DNS Sinkhole approach to block websites across all browsers (Chrome, Edge, Firefox, etc.).
+* **⚡ Instant Updates:** Automates DNS flushing (`ipconfig /flushdns`) to ensure blocks take effect immediately without lag.
+* **🔐 Admin Authentication:** Secure login system with persistent session management to prevent impulsive unblocking.
+* **📡 Secure Architecture:** Migrated from a legacy Python/Flask backend to a native Electron IPC architecture, reducing runtime dependencies and closing exposed HTTP ports.
+* **🎨 Responsive UI:** Custom dark-themed UI with glassmorphism effects, built for resizing and varying screen densities.
+
+## 🏗 Architecture
+The application follows a **Main vs. Renderer** process architecture:
+
+1.  **Renderer (React):** Handles the UI and State. It never touches the file system directly. Instead, it dispatches **Redux Thunks** which send secure messages via a **Context Bridge**.
+2.  **Preload Script:** Acts as a security firewall, exposing only specific, safe functions (`blockSite`, `verifyUser`) to the frontend.
+3.  **Main Process (Node.js):**
+    * Listens for IPC events.
+    * Validates input.
+    * Modifies `C:\Windows\System32\drivers\etc\hosts`.
+    * Executes shell commands to flush DNS cache.
+
+## 📦 Installation & Setup
 
 ### Prerequisites
+* Node.js installed.
+* **Windows:** Must run terminal/IDE as **Administrator** (required to modify system files).
 
-**IMPORTANT:** Lock requires Python 3.8 or higher to be installed on your system.
-
-#### Windows
-1. Download Python from [python.org](https://www.python.org/downloads/)
-2. During installation, **CHECK "Add Python to PATH"** ✓
-3. Verify installation:
-   ```cmd
-   python --version
-   ```
-   Should show: `Python 3.x.x`
-
-#### macOS
+### Development
 ```bash
-brew install python3
-# Or download from python.org
-python3 --version
+# 1. Install dependencies
+cd frontend
+npm install
+
+# 2. Run the application (Developer Mode)
+# Ensure your terminal is running as Administrator!
+npm run start
+
 ```
 
-#### Linux
+### Build for Production
+
+To generate a standalone `.exe` installer:
+
 ```bash
-sudo apt-get update
-sudo apt-get install python3 python3-pip
-python3 --version
+npm run electron:build:win
+
 ```
 
----
+The installer will be located in `frontend/dist-electron/`.
 
-## Installing Lock
+## 👨‍💻 Author
 
-### Windows
-
-1. **Right-click** on `Lock Setup 1.0.0.exe`
-2. Select **"Run as administrator"** (Required!)
-3. Follow the installation wizard
-4. Launch Lock from Start Menu or Desktop
-
-### First Launch (Important!)
-
-**On first launch, Lock will automatically:**
-- Install required Python packages (Flask, flask_cors)
-- Show a loading screen saying "Installing dependencies..."
-- This takes 30-60 seconds
-- **This only happens ONCE!**
-
-After that, Lock will start normally every time.
+**Saurabh** *Aspiring Full Stack Developer specialized in React & System Utilities.*
 
 ---
 
-## Running Lock
+*Note: This application modifies system files (`hosts`). Please use responsibly.*
 
-### Windows
-- Always run as **Administrator** (required to modify hosts file)
-- Find Lock in Start Menu or Desktop shortcut
-- Right-click → Run as administrator
-
-### macOS
-```bash
-sudo open /Applications/Lock.app
 ```
-
-### Linux
-```bash
-sudo /opt/lock/lock
-```
-
----
-
-## How It Works
-
-1. **Create Account:** First time setup - create your master admin account
-2. **Add Websites:** Type website URLs to block (e.g., facebook.com)
-3. **Block List:** View and manage all blocked websites
-4. **Automatic:** Changes take effect immediately!
-
----
-
-## Troubleshooting
-
-### "Python not found" Error
-- Make sure Python is installed
-- Windows: Check "Add Python to PATH" during installation
-- Verify: `python --version` in Command Prompt
-
-### "Permission Denied" Error
-- Run Lock as Administrator (Windows)
-- Use `sudo` on macOS/Linux
-
-### Dependencies Won't Install
-- Check internet connection
-- Manually install: `pip install flask flask_cors`
-- Try running: `python -m pip install flask flask_cors`
-
-### Websites Not Blocking
-- Flush DNS cache:
-  - **Windows:** `ipconfig /flushdns`
-  - **macOS:** `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`
-  - **Linux:** `sudo systemd-resolve --flush-caches`
-- Close and reopen your browser
-
-### Port 5000 Already in Use
-- Close any applications using port 5000
-- Restart Lock
-
----
-
-## Technical Details
-
-- **Frontend:** Electron + React
-- **Backend:** Flask (Python)
-- **Method:** Modifies system hosts file
-- **Port:** 5000 (Flask server)
-
----
-
-## Uninstalling
-
-### Windows
-- Control Panel → Programs → Uninstall Lock
-- Or: Settings → Apps → Lock → Uninstall
-
-### macOS
-- Drag Lock.app to Trash
-- Empty Trash
-
-### Linux
-- `sudo apt remove lock` (if installed via .deb)
-- Or delete from /opt/lock
-
----
-
-## Need Help?
-
-If you encounter any issues:
-1. Check if Python is installed: `python --version`
-2. Try manual dependency install: `pip install flask flask_cors`
-3. Run as Administrator/sudo
-4. Check the console for error messages
-
----
-
-**Created by Saurabh**  
-Version 1.0.0

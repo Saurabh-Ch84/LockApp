@@ -6,9 +6,8 @@ const Hero = () => {
     <div className='hero-container'>
         <div className='hero-content'>
             <h1>
-                Hello There!
-                <br />
-                Welcome to Website Blocker.
+                "Block. Focus. Unlock."
+                <p>-Saurabh</p>
             </h1>
         </div>
     </div>

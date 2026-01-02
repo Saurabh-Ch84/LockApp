@@ -7,23 +7,25 @@
 
 /* --- Main Container --- */
 .blocker-container {
-  /* --- RESPONSIVE CHANGE --- */
   /* Use a percentage width with a max-width for better scaling */
   width: 90%; 
   max-width: 900px; 
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 2rem 3rem;
+  
+  /* Glassmorphism Effect */
   background-color: rgba(40, 44, 52, 0.7);
   border-radius: 15px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease; /* Smooth transition for resizing */
+  transition: all 0.3s ease;
 }
 
 /* --- Left and Right Panels --- */
@@ -32,10 +34,15 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 25px;
+  /* Ensure it takes up available space but doesn't force overflow */
+  flex: 1; 
+  min-width: 0; /* Critical for preventing flex items from overflowing */
+  margin-right: 20px; /* Space between left and right panels */
 }
 
 .right-panel {
   display: flex;
+  flex-shrink: 0; /* Don't let the right panel shrink */
 }
 
 /* --- Heading --- */
@@ -43,20 +50,21 @@
   font-size: 2rem;
   color: #efefef;
   font-weight: 600;
-  white-space: nowrap; /* Prevents title from wrapping on resize */
+  white-space: nowrap; 
+  margin: 0;
 }
 
 /* --- Form & Input Styling --- */
 .add-form {
   display: flex;
-  /* --- RESPONSIVE CHANGE --- */
-  /* Use 100% width to be fluid within the left-panel */
   width: 100%; 
-  min-width: 300px; /* Prevents it from getting too squished */
+  max-width: 500px; /* Good limit for readability */
 }
 
 .website-input {
   flex-grow: 1;
+  /* SAFETY TWEAK: Allow input to shrink if needed so button stays visible */
+  min-width: 0; 
   padding: 15px;
   border: 2px solid #555;
   border-right: none;
@@ -83,6 +91,10 @@
   cursor: pointer;
   border-radius: 0 10px 10px 0;
   transition: background-color 0.2s;
+  
+  /* SAFETY TWEAK: Never let the button get squished */
+  white-space: nowrap;
+  flex-shrink: 0; 
 }
 
 .add-form button:hover {
@@ -100,7 +112,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  white-space: nowrap; /* Prevents button text from wrapping */
+  white-space: nowrap;
 }
 
 .history-button:hover {
@@ -109,51 +121,54 @@
 }
 
 
-/* --- THE MAGIC OF RESPONSIVENESS: MEDIA QUERY --- */
-/* These styles will ONLY apply when the screen width is 768px or less */
-@media (max-width: 768px) {
+/* --- RESPONSIVE DESIGN (Mobile / Small Windows) --- */
+@media (max-width: 850px) {
   .blocker-container {
-    flex-direction: column; /* Stack the panels vertically */
-    gap: 30px; /* Add space between the stacked panels */
-    padding: 2rem 1.5rem; /* Reduce side padding */
+    flex-direction: column; /* Stack them */
+    align-items: stretch;   /* Stretch to fill width */
+    gap: 30px;
+    padding: 2rem 1.5rem;
+    height: auto; /* Allow height to grow */
   }
 
   .left-panel {
-    align-items: center; /* Center the content when stacked */
+    align-items: center;
+    margin-right: 0;
     width: 100%;
   }
 
   .left-panel h2 {
     text-align: center;
+    font-size: 1.5rem; /* Slightly smaller text on mobile */
+    white-space: normal; /* Allow text to wrap on very small screens */
   }
 
   .right-panel {
     width: 100%;
-    justify-content: center; /* Center the button */
+    justify-content: center;
   }
 
   .add-form {
-    min-width: unset; /* Unset the min-width for smaller screens */
     width: 100%;
+    justify-content: center;
   }
 }
+
+/* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
-  width: 10px; /* How wide the scrollbar is */
+  width: 10px;
 }
 
-/* 2. The track (the background the scrollbar moves on) */
 ::-webkit-scrollbar-track {
-  background: #282c34; /* A dark color that matches your theme */
+  background: #282c34;
 }
 
-/* 3. The thumb (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background-color: #555; /* A subtle, medium-dark gray */
-  border-radius: 20px; /* Fully rounded ends */
-  border: 2px solid #282c34; /* A small border to create a "padding" effect */
+  background-color: #555;
+  border-radius: 20px;
+  border: 2px solid #282c34;
 }
 
-/* 4. The thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #777; /* A lighter gray when you hover over it */
+  background-color: #777;
 }

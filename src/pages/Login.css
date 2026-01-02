@@ -1,0 +1,134 @@
+/* src/pages/Login.css */
+
+/* GLOBAL FIX: Ensure padding doesn't make elements wider than 100% */
+* {
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full height */
+  padding: 20px;     /* Small padding to prevent touching edges */
+  
+  /* Background Image Handling */
+  background-image: url('/h2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Fix for small screens: Allow scrolling if window is too short */
+  overflow-y: auto; 
+}
+
+.login-box {
+  /* Layout Sizing */
+  width: 100%;
+  max-width: 400px; /* Standard width */
+  
+  /* Spacing */
+  padding: 2.5rem;
+  
+  /* Glassmorphism / Theme */
+  background-color: rgba(40, 44, 52, 0.85); /* Slightly darker for readability */
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  text-align: center;
+  color: #efefef;
+}
+
+.login-box h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.login-box p {
+  margin-bottom: 25px;
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #555;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.login-button {
+  width: 100%;
+  padding: 14px; /* Larger hit area */
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #282c34;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.login-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* Error Message Styling */
+.error-message {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #ff6b6b;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+/* If the screen is smaller than 480px (like a phone or small window) */
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1.5rem; /* Reduce padding to save space */
+    max-width: 90%;  /* Ensure it doesn't touch edges */
+  }
+
+  .login-box h1 {
+    font-size: 1.8rem; /* Smaller title */
+  }
+}

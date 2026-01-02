@@ -7,6 +7,21 @@
   --primary-accent-hover: #e0e0e0;
   --text-on-accent: #282c34;
   --base-background: #282c34; /* A default dark background */
+  user-select: none;
+  -webkit-user-select: none; /* Critical for Electron/Chrome */
+  -webkit-app-region: no-drag; /* Safety default */
+}
+
+/* 2. Re-enable selection for inputs so users can type */
+input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+button {
+  user-select: none;
+  cursor: pointer;
 }
 
 /* --- 2. GLOBAL RESET --- */

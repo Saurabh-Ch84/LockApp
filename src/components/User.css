@@ -1,0 +1,36 @@
+.user-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #282c34;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.user-info h2 {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.user-info h3 {
+    font-size: 1.5rem;
+    color: hsl(216, 22%, 95%);
+    margin: 0;
+}
+
+.logout-button {
+    background-color: transparent;
+    border: 1.5px solid #dc3545;
+    color: #dc3545;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #dc3545;
+    color: white;
+}
