@@ -74,11 +74,5 @@ The installer will be located in `frontend/dist-electron/`.
 ## 👨‍💻 Author
 
 **Saurabh** *Aspiring Full Stack Developer specialized in React & System Utilities.*
-
 ---
-
 *Note: This application modifies system files (`hosts`). Please use responsibly.*
-
-```
-
-```
